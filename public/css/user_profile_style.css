@@ -1,0 +1,15 @@
+/*page selection nav set*/
+.user-nav-set-btn{
+  margin: 5px;
+
+}
+.user-nav-set{
+  margin-bottom: 15px;
+}
+/*product block grid*/
+.product-block-outer{
+height: 150px;
+background-color: rgb(124, 69, 193);
+border: 1px solid white;
+color:white;
+}

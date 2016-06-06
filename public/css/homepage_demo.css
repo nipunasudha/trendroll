@@ -1,0 +1,13 @@
+/*############## HOME PAGE DEMO BOXES ##############*/
+
+.slider-box-demo {
+    height: 250px;
+    margin-bottom: 20px;
+}
+.item-boxes-demo {
+    height: 150px;
+    background-color: Grey;
+}
+.box-outer-demo {
+    padding: 6px;
+}

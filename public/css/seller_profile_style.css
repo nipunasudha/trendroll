@@ -1,0 +1,36 @@
+
+/*############## SELLER PROFILE STYLINGS ##############*/
+
+#coverimg {
+    background-image: url('../img/cover.jpg');
+    background-size: 100%;
+    height: 200px;
+}
+#profileimg {
+    margin-top: 30px;
+    border-radius: 0px;
+    background: #888888;
+    padding: 5px;
+}
+#ratings {
+    margin-top: 30px;
+}
+#ratingimg {
+    height: 30px;
+}
+#products {
+    margin-top: 30px;
+}
+#contact_details {
+    margin: 0px;
+    padding: 30px;
+    background-color: azure;
+}
+#featured_products {
+    margin: 0px;
+    padding: 0px;
+}
+.products {
+    padding: 5px;
+    height: 100px;
+}

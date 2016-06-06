@@ -1,0 +1,72 @@
+<?php $__env->startSection('content'); ?>
+
+		<link href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<br><a href="<?php echo e(url('add')); ?>">Add new product</a><br>
+
+
+		<script src= "https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
+
+                <div class="panel-body">
+                    You are logged in!
+                </div>
+            </div>
+     
+<table id="myTable1" class="display" cellspacing="0" width="100%" style="display:none;">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Seller</th>
+                <th>Collection</th>
+                <th>Added On</th>
+                <th>Last Modified</th>
+                
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Seller</th>
+                <th>Collection</th>
+                <th>Added On</th>
+                <th>Last Modified</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <?php foreach($passed_products as $product): ?>
+            <tr onclick="window.document.location='//www.google.com';" style="cursor:pointer;">
+                 
+                <td><?php echo e($product->id); ?></td>
+                <td><?php echo e($product->name); ?></td>
+                <td><?php echo e($product->price); ?></td>
+                <td><?php echo e($product->seller_id); ?></td>
+                <td><?php echo e($product->collection_id); ?></td>
+                <td><?php echo e($product->created_at); ?></td>
+                <td><?php echo e($product->updated_at); ?></td>
+                     
+            </tr>
+                
+           <?php endforeach; ?>
+            
+        </tbody>
+    </table>
+
+<script>
+$(document).ready(function(){
+    $('#myTable1').DataTable();
+    $('#myTable1').fadeIn(800);
+    
+    
+});
+</script>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.backend', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

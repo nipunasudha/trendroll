@@ -2,9 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="_token" content="{!! csrf_token() !!}"/>
   <title></title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css">
+<style media="screen">
+
+</style>
 
 </head>
 <body>
@@ -20,6 +23,9 @@
       Drink: <input type="text" name="drink" value="" id="drink">
     </p>
     <button type="button" name="addbutton" id="add">Add item!</button>
+    <button type="button" name="postbutton" id="postbackend">Post item!</button>
+
+
     <h4>These are the orders!</h4>
     <ul id="orders">
 
@@ -41,11 +47,40 @@ $('#add').on('click',function(){
     type:'GET',
     url:'/getjson',
     success:function(data){
-      $('#orders').html('<li>'+data.name+'</li>');
+      $('#orders').append('<li>'+data.name+'</li>');
+    },
+    error:function(){
+      alert('bad URL!');
     }
 })
 
 })
+$('#postbackend').on('click',function(){
 
+  var $name=$('#name');
+  var $drink=$('#drink');
+  var order={
+    name:$name.val(),
+    drink:$drink.val()
+  };
+  $.ajax({
+    type:'POST',
+    url:'/postjson',
+    data:order,
+    success:function(newOrder){
+     $('#orders').append('<li>'+newOrder.name + ' - ' + newOrder.drink + '</li>');
+
+    },
+    error:function(){
+      alert('bad URL!');
+    }
+})
+
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({
+   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+});
 </script>
 </html>

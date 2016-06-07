@@ -67,6 +67,7 @@ Route::get('getjson', 'JsonRespondController@test');
 Route::get('jsontest', function () {
   return view('testviews.jsontest');
 });
+Route::post('/postjson', 'JsonRespondController@test2');
 
 
 

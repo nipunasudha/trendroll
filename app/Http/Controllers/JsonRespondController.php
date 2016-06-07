@@ -20,11 +20,7 @@ class JsonRespondController extends Controller
   }
 
   public function test3(Request $request){
-    //return "You are about to get a JSON!";
-
       return response()->json(['message' => $request->id]);
-
-
   }
 
 

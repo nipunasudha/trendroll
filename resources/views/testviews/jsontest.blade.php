@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="_token" content="{!! csrf_token() !!}"/>
   <title></title>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<style media="screen">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <style media="screen">
 
-</style>
+  </style>
 
 </head>
 <body>
@@ -34,7 +34,13 @@
 
   </div>
 
-
+  <template id="info-template">
+    <p>
+      hah! This is a text, with @{{name}} and @{{drink}}
+    </p>
+    <input type="text" name="name" value="">
+    <input type="button" name="name" value="Click here!">
+  </template>
 
 
 
@@ -53,7 +59,7 @@ $('#add').on('click',function(){
     error:function(){
       alert('bad URL!');
     }
-})
+  })
 
 })
 $('#postbackend').on('click',function(){
@@ -69,19 +75,19 @@ $('#postbackend').on('click',function(){
     url:'/postjson',
     data:order,
     success:function(newOrder){
-     $('#orders').append('<li>'+newOrder.name + ' - ' + newOrder.drink + '</li>');
+      $('#orders').append(Mustache.render($('#info-template').html(),newOrder));
 
     },
     error:function(){
       alert('bad URL!');
     }
-})
+  })
 
 })
 </script>
 <script type="text/javascript">
 $.ajaxSetup({
-   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+  headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
 });
 
 $('#deletebutton').on('click',function(){
@@ -101,4 +107,5 @@ $('#deletebutton').on('click',function(){
 })
 
 </script>
+<script src= "{{ URL::asset('tools\mustache.min.js') }}"></script>
 </html>

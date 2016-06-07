@@ -68,7 +68,7 @@ Route::get('jsontest', function () {
   return view('testviews.jsontest');
 });
 Route::post('/postjson', 'JsonRespondController@test2');
-
+Route::delete('/deletejson', 'JsonRespondController@test3');
 
 
 

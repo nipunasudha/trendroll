@@ -24,6 +24,7 @@
     </p>
     <button type="button" name="addbutton" id="add">Add item!</button>
     <button type="button" name="postbutton" id="postbackend">Post item!</button>
+    <button type="button" name="deletebutton" id="deletebutton">DELETE item!</button>
 
 
     <h4>These are the orders!</h4>
@@ -82,5 +83,22 @@ $('#postbackend').on('click',function(){
 $.ajaxSetup({
    headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
 });
+
+$('#deletebutton').on('click',function(){
+
+  $.ajax({
+    type:'post',
+    url:'/deletejson',
+    data: {_method: 'delete',id:'0714355447'},
+    success:function(newOrder){
+      //$('#orders').append('<li>'+newOrder.name + ' - ' + newOrder.drink + '</li>');
+      alert(newOrder.message);
+    },
+    error:function(){
+      alert('bad URL!');
+    }
+  })
+})
+
 </script>
 </html>

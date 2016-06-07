@@ -13,9 +13,16 @@ class JsonRespondController extends Controller
   }
 
   public function test2(Request $request){
+
+      return response()->json(['name' => $request->name, 'drink' => $request->drink]);
+
+
+  }
+
+  public function test3(Request $request){
     //return "You are about to get a JSON!";
 
-          return response()->json(['name' => $request->name, 'drink' => $request->drink]); //something is wrong
+      return response()->json(['message' => $request->id]);
 
 
   }

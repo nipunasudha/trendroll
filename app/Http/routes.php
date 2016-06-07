@@ -36,7 +36,15 @@ Route::get('/contact', function () {
 });
 
 
-//-------Test routes removed. Please use seperate branches for testing----------
+//-------Test routes-------------------------------------------------------
+
+Route::get('/vuetest', function () {
+  return view('/testviews/vue');
+});
+
+
+//-------Test routes-------------------------------------------------------
+
 
 
 //-----------------------------Backend routes----------------------------------

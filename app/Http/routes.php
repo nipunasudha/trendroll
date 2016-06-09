@@ -36,7 +36,50 @@ Route::get('/contact', function () {
 });
 
 
-//-------Test routes removed. Please use seperate branches for testing----------
+
+
+
+
+//-----------------------------Test routes----------------------------------
+//______________________________Modal _____________________________________
+Route::get('/modaltest', function () {
+  return view('testviews/modal_test');
+});
+//_________________________ database read write ________________________________
+Route::get('list', 'DataReadController@read_products');
+Route::post('list','DataWriteController@write_products');
+Route::get('add', function(){
+  return view('add_product');
+});
+//_______________________ file uploading test ______________________________
+
+Route::post('upload', 'UploadController@upload_image');
+Route::get('upload', function () {
+  return view('testviews/upload_image');
+});
+//________________________ frontend test new version ________________________
+
+Route::get('frontend', function(){
+  return view('layouts/frontend');
+});
+//________________________ JSON TESTINGS ______________________________________
+Route::get('getjson', 'JsonRespondController@test');
+Route::get('jsontest', function () {
+  return view('testviews.jsontest');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //-----------------------------Backend routes----------------------------------
